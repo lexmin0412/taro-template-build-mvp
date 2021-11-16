@@ -1,5 +1,5 @@
-const compareVersion = require('./compareVersion')
-const getTaroVersion = require('./getTaroVersion')
+// const compareVersion = require('./compareVersion')
+// const getTaroVersion = require('./getTaroVersion')
 
 const pluginList = [
 	[
@@ -14,8 +14,8 @@ const pluginList = [
 				KEY_MAP_QQ: '腾讯地图Key',
 			},
 			taroVersion: {
-				h5: '2.2.15',
-				weapp: '2.2.15',
+				h5: '2.2.18',
+				weapp: '2.2.18',
 			},
 		},
 	],
@@ -44,18 +44,18 @@ if (process.env.TARO_ENV === 'weapp') {
 	)
 }
 
-// 获取当前项目的taro版本号
-const taroVersion = getTaroVersion()
+// // 获取当前项目的taro版本号
+// const taroVersion = getTaroVersion()
 
-// taro2.2.8以上的版本官方将uglify/scss插件被分离出了两个插件，所以这里需要插入
-const shouldPushUglifyNSassPlugin = compareVersion(taroVersion, '2.2.8') >= 0
-console.log(
-	'当前taro版本',
-	taroVersion,
-	`${shouldPushUglifyNSassPlugin ? '' : '不'}需要单独引入 uglify 和 sass 插件`
-)
+// // taro2.2.8以上的版本官方将uglify/scss插件被分离出了两个插件，所以这里需要插入
+// const shouldPushUglifyNSassPlugin = compareVersion(taroVersion, '2.2.8') >= 0
+// console.log(
+// 	'当前taro版本',
+// 	taroVersion,
+// 	`${shouldPushUglifyNSassPlugin ? '' : '不'}需要单独引入 uglify 和 sass 插件`
+// )
 
-if (shouldPushUglifyNSassPlugin) {
+if (true) {
 	pluginList.unshift(['@tarojs/plugin-uglify'])
 	pluginList.unshift(['@tarojs/plugin-sass'])
 }
